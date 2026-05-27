@@ -355,4 +355,63 @@ def draw_fish(x, y, size, color, direction):
                         eye_x + eye_radius, eye_y + eye_radius, 
                         fill="white", outline="black", width=1)
     
+def draw_cloud(x, y, size):
+    """
+    Draws a fluffy cloud at the given (x, y) coordinates with a customizable size.
+    
+    AI Attribution: This function was generated using Gemini.
+    Original Student Prompt: "hi i dont like the second pattern, can you keep the first one and delete the other? The parameters are the same."
+    """
+    # First layer: Draw the outlines for the overlapping circles
+    _canvas.create_oval(x, y, x + size, y + size, fill=_fill_color, outline=_outline_color, width=_line_thickness)
+    _canvas.create_oval(x - size * 0.5, y + size * 0.2, x + size * 0.3, y + size * 0.9, fill=_fill_color, outline=_outline_color, width=_line_thickness)
+    _canvas.create_oval(x + size * 0.7, y + size * 0.2, x + size * 1.5, y + size * 0.9, fill=_fill_color, outline=_outline_color, width=_line_thickness)
+    
+    # Second layer: Draw borderless shapes over the middle to hide internal overlapping lines
+    _canvas.create_oval(x, y, x + size, y + size, fill=_fill_color, outline="")
+    _canvas.create_oval(x - size * 0.5, y + size * 0.2, x + size * 0.3, y + size * 0.9, fill=_fill_color, outline="")
+    _canvas.create_oval(x + size * 0.7, y + size * 0.2, x + size * 1.5, y + size * 0.9, fill=_fill_color, outline="")
 
+def draw_pine_tree(x, y, size, color):
+    """
+    Draws a layered pine tree inside a square bounding box of the given size.
+    
+    AI Attribution: This function was generated using Gemini.
+    Original Student Prompt: "Hi i want to draw pine trees. The parameters are the coordinates, size, and color."
+    """
+    # 1. Draw the trunk (Brown)
+    trunk_width = size * 0.2
+    trunk_height = size * 0.3
+    trunk_x1 = x + (size * 0.4)
+    trunk_y1 = y + (size * 0.7)
+    trunk_x2 = trunk_x1 + trunk_width
+    trunk_y2 = trunk_y1 + trunk_height
+    
+    _canvas.create_rectangle(
+        trunk_x1, trunk_y1, trunk_x2, trunk_y2, 
+        fill="#5c4033", outline=_outline_color, width=_line_thickness
+    )
+    
+    # 2. Draw the bottom foliage layer
+    _canvas.create_polygon(
+        x, y + size * 0.7,
+        x + size, y + size * 0.7,
+        x + size / 2, y + size * 0.4,
+        fill=color, outline=_outline_color, width=_line_thickness
+    )
+    
+    # 3. Draw the middle foliage layer
+    _canvas.create_polygon(
+        x + size * 0.1, y + size * 0.45,
+        x + size * 0.9, y + size * 0.45,
+        x + size / 2, y + size * 0.2,
+        fill=color, outline=_outline_color, width=_line_thickness
+    )
+    
+    # 4. Draw the top foliage layer
+    _canvas.create_polygon(
+        x + size * 0.2, y + size * 0.25,
+        x + size * 0.8, y + size * 0.25,
+        x + size / 2, y,
+        fill=color, outline=_outline_color, width=_line_thickness
+    )

@@ -3,31 +3,30 @@ import simple_animation as sa
 def draw_frame(frame_number, elapsed_seconds, width, height):
     """Draws one frame of an animation. Called approx 60 times per second."""
     
-    sa.fill_background("white") # Clear the background for this frame
-   
-     # Example Animation: A moving circle
-    x_ball = sa.loop_motion(0, width, 5.0, frame_number) # x coordinate
-    
-    sa.set_fill_color("red")
-    
-    sa.fill_circle(x_ball, height / 2, 40)
-    
-    # Example Animation: A moving fish (a little more complicated) with changing colors
-    
-    repeat_fish = 300 # number of frames to repeat
-    color_hue = (frame_number % repeat_fish) / repeat_fish
-    fish_color = sa.hls_to_rgb_hex(color_hue, 0.5, 1.0)
-    
-    x_fish = sa.oscillate_frames(0, width-50, repeat_fish, frame_number)
-    y_fish = sa.oscillate_motion(height//2, height//2 +100, 0.15, frame_number)
-    
-    if (frame_number % repeat_fish)  < (repeat_fish // 2):
-        sa.draw_fish(x_fish, y_fish, 50, fish_color, "right")
-    else:
-        sa.draw_fish(x_fish, y_fish, 50, fish_color, "left")
-    
+    # I. Background
+    # a) Sky
+    sa.fill_background("#9cc6e6")
 
-    
+    # b) Cloud
+    sa.set_fill_color("white")
+    sa.draw_cloud(200, 150, 60)
+    sa.draw_cloud(550, 80, 100)
+
+    # c) Hill
+    sa.set_fill_color("white")
+    sa.set_outline_color("white")
+    sa.fill_triangle(0, 300, 1200, 600, 0, 600)
+
+    # d) Trees
+    sa.set_outline_color("#257333")
+    sa.draw_pine_tree(-80, 350, 200, "#257333")
+    sa.draw_pine_tree(0, 400, 200, "#257333")
+    sa.draw_pine_tree(100, 450, 200, "#257333")
+    sa.draw_pine_tree(200, 450, 200, "#257333")
+    sa.draw_pine_tree(300, 480, 200, "#257333")
+    sa.draw_pine_tree(400, 520, 200, "#257333")
+    sa.draw_pine_tree(500, 560, 200, "#257333")
+    sa.draw_pine_tree(-50, 450, 200, "#257333")
     
     # Draw the information text
     sa.set_fill_color("black")
