@@ -87,7 +87,32 @@ def draw_frame(frame_number, elapsed_seconds, width, height):
             flake['x'] = 0
         elif flake['x'] < 0:
             flake['x'] = width
+
             
+     # Ski lift cable (seobin) 
+    base_x = width
+    base_y = 400
+
+    peak_x = 0
+    peak_y = 0
+
+    sa.set_outline_color("black")
+    sa.set_line_thickness(3)
+    sa.draw_line(base_x, base_y, peak_x, peak_y)
+
+    # Moving chairs going up-left(Seobin)
+    total_frames = 300
+
+    for i in range(5):
+        progress = ((frame_number + i * 60) % total_frames) / total_frames
+
+        x = base_x + (peak_x - base_x) * progress
+        y = base_y + (peak_y - base_y) * progress
+
+        sa.draw_chair(x, y)
+
+
+
 if __name__ == "__main__":
     # Launch the wrapper and tell it to use our draw_frame function
     sa.start(draw_frame)
