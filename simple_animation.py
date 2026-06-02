@@ -415,3 +415,31 @@ def draw_pine_tree(x, y, size, color):
         x + size / 2, y,
         fill=color, outline=_outline_color, width=_line_thickness
     )
+
+
+def draw_skier(x, y, size):
+    """
+    Draws a skier with distinct body parts and thicker lines.
+    
+    AI Attribution: This function was generated using Gemini.
+    Original Student Prompt: "can you change the code so that there is a clear body, arms and legs, and thicker lines,"
+    """
+    # Skis
+    _canvas.create_line(x - size * 1.5, y + size, x + size * 1.5, y + size, fill=_outline_color, width=_line_thickness + 4)
+    
+    # Legs (Front and Back)
+    _canvas.create_line(x, y + size / 2, x - size / 3, y + size, fill=_outline_color, width=_line_thickness + 3) 
+    _canvas.create_line(x, y + size / 2, x + size / 3, y + size, fill=_outline_color, width=_line_thickness + 3)
+    
+    # Body
+    _canvas.create_oval(x - size / 3, y - size / 4, x + size / 3, y + size / 2, fill=_fill_color, outline=_outline_color, width=_line_thickness + 3)
+    
+    # Head
+    _canvas.create_oval(x - size / 4, y - size * 0.8, x + size / 4, y - size * 0.3, fill=_fill_color, outline=_outline_color, width=_line_thickness + 3)
+    
+    # Arms 
+    _canvas.create_line(x, y, x + size * 0.6, y + size * 0.3, fill=_outline_color, width=_line_thickness + 3)
+    
+    # Ski Pole
+    _canvas.create_line(x + size * 0.6, y + size * 0.3, x - size / 2, y + size * 1.2, fill=_outline_color, width=_line_thickness + 1)
+    
