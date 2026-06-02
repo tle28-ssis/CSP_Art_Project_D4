@@ -443,3 +443,22 @@ def draw_skier(x, y, size):
     # Ski Pole
     _canvas.create_line(x + size * 0.6, y + size * 0.3, x - size / 2, y + size * 1.2, fill=_outline_color, width=_line_thickness + 1)
     
+    
+def draw_box(x, y, size):
+    set_fill_color("red")
+    fill_rectangle(x - size, y - size, size * 2, size * 2)
+
+    set_outline_color("black")
+    draw_rectangle(x - size, y - size, size * 2, size * 2)
+    
+def draw_chair(x, y):
+    # hanger
+    set_outline_color("black")
+    draw_line(x, y - 20, x, y)
+
+    # chair
+    set_fill_color("red")
+    fill_rectangle(x - 10, y - 5, 20, 10)
+
+    set_outline_color("black")
+    draw_rectangle(x - 10, y - 5, 20, 10)
