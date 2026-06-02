@@ -59,7 +59,7 @@ def draw_frame(frame_number, elapsed_seconds, width, height):
 
     # Draw skier by Joshua
     new_y = sa.loop_frames(250, 500, 250, frame_number)
-    new_x = sa.loop_frames(100, 900, 250, frame_number)
+    new_x = sa.loop_frames(0, 900, 250, frame_number)
     sa.draw_skier(new_x, new_y, 40)
     
     # II. Snowflakes Animation by Nam M
@@ -91,7 +91,7 @@ def draw_frame(frame_number, elapsed_seconds, width, height):
             
      # Ski lift cable (seobin) 
     base_x = width
-    base_y = 400
+    base_y = 230
 
     peak_x = 0
     peak_y = 0
@@ -116,3 +116,4 @@ def draw_frame(frame_number, elapsed_seconds, width, height):
 if __name__ == "__main__":
     # Launch the wrapper and tell it to use our draw_frame function
     sa.start(draw_frame)
+
