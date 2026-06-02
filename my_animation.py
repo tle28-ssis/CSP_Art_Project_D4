@@ -35,6 +35,11 @@ def draw_frame(frame_number, elapsed_seconds, width, height):
     sa.draw_text(40, 110, f"Mouse x: {sa.get_mouse_x()}")
     sa.draw_text(40, 140, f"Mouse y: {sa.get_mouse_y()}")
 
+    # Draw skier
+    new_y = sa.loop_frames(100, 500, 300, frame_number)
+    new_x = sa.loop_frames(100, 800, 300, frame_number)
+    sa.draw_skier(new_x, new_y, 40)
+
 if __name__ == "__main__":
     # Launch the wrapper and tell it to use our draw_frame function
     sa.start(draw_frame)
